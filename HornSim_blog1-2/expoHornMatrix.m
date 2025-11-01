@@ -1,3 +1,12 @@
+% [a,b,c,d] = expoHornMatrix(k,Zrc,S1,S2,L)
+%
+% A function to calculate the T-matrix coefficients of an exponential horn.
+% The T12 type coefficients are used.
+% 
+% Copyright (c) 2025 Bjørn Kolbrek
+% 
+% This code is provided free of charge under the MIT license (see LICENSE file).
+
 function [a,b,c,d] = expoHornMatrix(k,Zrc,S1,S2,L)
 
 m = log(S2/S1)/(2*L);

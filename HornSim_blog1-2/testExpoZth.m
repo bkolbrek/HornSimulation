@@ -1,3 +1,12 @@
+% testExpoZth.m
+% 
+% This file demonstrates how to calculate the throat impedance of an exponential 
+% horn using a T-matrix.
+% 
+% Copyright (c) 2025 Bjørn Kolbrek
+% 
+% This code is provided free of charge under the MIT license (see LICENSE file).
+
 % Define medium properties (Hornresp default values)
 rho = 1.205;
 c = 344;

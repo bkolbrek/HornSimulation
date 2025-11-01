@@ -1,3 +1,12 @@
+% Znorm = circularPistonIB(ka)
+% 
+% A function to calculate the normalized radiation impedance of a circular
+% piston in an infinite baffle.
+% 
+% Copyright (c) 2025 Bjørn Kolbrek
+% 
+% This code is provided free of charge under the MIT license (see LICENSE file).
+
 function Znorm = circularPistonIB(ka)
 R = 1 - besselj(1,2*ka)./(ka);
 X = struveH1(2*ka)./(ka);
