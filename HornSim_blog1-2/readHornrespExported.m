@@ -7,8 +7,8 @@
 % This code is provided free of charge under the MIT license (see LICENSE file).
 
 function data = readHornrespExported(fn)
-table = readtable(fn, 'VariableNamingRule', 'preserve');
-matrix = table2array(table);
+HRdata = importdata(fn);
+matrix = HRdata.data;
 data.freq = matrix(:,1);
 data.ZaNorm = matrix(:,2) + 1i*matrix(:,3);
 data.SPLdB = matrix(:,5);
