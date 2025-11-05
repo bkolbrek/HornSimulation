@@ -1,10 +1,10 @@
 % multipleSegments.m
-% 
+%
 % This file demonstrates how to simulate a two-segment horn using
 % T-matrices
-% 
+%
 % Copyright (c) 2025 Bjørn Kolbrek
-% 
+%
 % This code is provided free of charge under the MIT license (see LICENSE file).
 
 addpath('..\utils\');
@@ -38,8 +38,7 @@ Me = expoHornMatrix(k,Zrc,S2,S3,L23);
 Mc = conicalHornMatrix(k,Zrc,S1,S2,L12);
 
 % Calculate composite horn matrix
-Mh = Mc*Me;
-
+Mh = mmtimes(Mc,Me);
 
 % Calculate and normalize throat impedance
 Z1 = getZ1(Z3, Mh);

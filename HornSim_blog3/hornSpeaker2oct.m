@@ -1,10 +1,10 @@
 % hornspeaker2.m
-% 
-% This file demonstrates how to simulate a simple exponential horn using 
+%
+% This file demonstrates how to simulate a simple exponential horn using
 % a full T-matrix approach
-% 
+%
 % Copyright (c) 2025 Bjørn Kolbrek
-% 
+%
 % This code is provided free of charge under the MIT license (see LICENSE file).
 
 addpath('..\utils\');
@@ -68,11 +68,10 @@ Me = expoHornMatrix(k,Zrc,S2,S3,L23);
 Mc = conicalHornMatrix(k,Zrc,S1,S2,L12);
 
 % Calculate composite horn matrix
-Th = Mc*Me;
+Th = mmtimes(Mc,Me);
 
 % Total system matrix
-
-T = TD * Tvrc * Tvtc * Th;
+T = mmtimes(mmtimes(mmtimes(TD, Tvrc), Tvtc), Th);
 
 Ze = getZ1(Z3, T);
 
@@ -80,8 +79,8 @@ Iin = eg./Ze.';
 egv = ones(1,length(freq)) * eg;
 
 inputs = [egv; Iin];
-outputs = inv(T) * inputs;
-driverOut = inv(TD) * inputs;
+outputs = mmtimes(minv(T), inputs);
+driverOut = mmtimes(minv(TD), inputs);
 pm = outputs(1,:);
 Um = outputs(2,:);
 

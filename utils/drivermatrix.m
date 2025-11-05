@@ -28,10 +28,18 @@ else
 end
 Tem = [0, Bl; 1/Bl, 0];
 
-if use12
-	TD = Te * Tem * Tm * Tma;
+if isOctave()
+	if use12
+		TD = mmtimes(mmtimes(mmtimes(Te, Tem), Tm), Tma);
+	else
+		TD = mmtimes(mmtimes(mmtimes(Tma, Tm), Tem), Te);
+	end
 else
-	TD = Tma * Tm * Tem * Te;
+	if use12
+		TD = Te * Tem * Tm * Tma;
+	else
+		TD = Tma * Tm * Tem * Te;
+	end
 end
 
 
